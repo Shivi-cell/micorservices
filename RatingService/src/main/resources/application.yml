@@ -1,0 +1,36 @@
+server:
+  port: 8083
+
+
+#spring:
+#  datasource:
+#    url: mongodb://localhost:27017/microservices
+#    username:
+#    password:
+#    driver-class-name:
+#    oracleucp:
+#      database-name:
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/
+      database: microservices
+  application:
+    name: RATING-SERVICE
+
+  #    to import the configuration form the github(config server)
+  config:
+    import: optional:configserver:http://localhost:8085
+
+#commenting the following eureka client configuration because now we are fetching the configuration from the config server
+
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
